@@ -10,8 +10,6 @@ import fragmentShader_closed_loop from './shaders/about/fragmentShader-closed-lo
 import fragmentShader_new from './shaders/about/fragmentShader-new.glsl';
 import fragmentShader_garret from './shaders/about/fragmentShader-garrett.glsl';
 
-import fragmentShader_terminal from './shaders/home/fragmentShader-terminal.glsl';
-
 // Define color palettes for different pages
 export const colorPalettes = {
   // Vibrant colors for about page (now also default)
@@ -54,24 +52,12 @@ export const shaderSets = {
       baseInterval: 2000
     }
   },
-  
-  // Home page - uses single terminal shader
-  'home': {
-    shaders: {
-      terminal: fragmentShader_terminal,
-    },
-    colors: colorPalettes.home,
-    harmonic: {
-      ratios: [1, 2, 3/2, 4/3],
-      baseInterval: 3000
-    }
-  }
 };
 
 // Function to get the shader set based on the current page path
 export function getShaderSetForPage(pagePath) {
   if (pagePath === '/' || pagePath === '') {
-    return shaderSets.home;
+    return shaderSets.about;
   } else {
     // Use 'about' as the default for all other pages
     return shaderSets.about;
