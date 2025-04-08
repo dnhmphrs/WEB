@@ -65,7 +65,7 @@
 </svelte:head>
 
 {#if Geometry}
-    <svelte:component this={Geometry} />
+    <svelte:component this={Geometry} currentPath={$page.url.pathname} />
 {:else}
     <div class="loading">loading.</div>
 {/if}

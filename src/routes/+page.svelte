@@ -1,6 +1,9 @@
 <script>
     import { screenType } from '$lib/store/store';
+    // import Title from '$lib/components/site/title.svelte';
 </script>
+
+<!-- <Title /> -->
 
 <body>
   <p>hi</p>
