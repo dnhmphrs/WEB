@@ -9,11 +9,11 @@
 	<h1 style="padding-right:10px;">PRESS SPACEBAR</h1>
 	{/if} -->
 	
-	<!-- {#if $page.url.pathname == '/'}
+	{#if $page.url.pathname == '/'}
 	<a href='/about'><h1 style="padding-left:10px;">ABOUT // CONTACT</h1></a>
 	{:else }
 	<a href='/'><h1 style="padding-left:10px;min-width: 200px;">HOME<span style="font-size: 20px; margin-left: 100px;">↝</span></h1></a>
-	{/if} -->
+	{/if}
 
 </header>
 
