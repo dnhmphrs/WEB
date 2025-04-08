@@ -1,17 +1,18 @@
 <script>
-	import { onMount } from 'svelte';
+	import { onMount, onDestroy } from 'svelte';
 	import { screenType } from '$lib/store/store';
 	import { page } from '$app/stores';
-	import { browser } from '$app/environment';
 	// import { afterNavigate } from '$app/navigation';
 
 	import * as THREE from 'three';
 
-	// Import the shader configuration
-	import { getShaderSetForPage, commonVertexShader } from './shaderConfig';
-
-	// Accept current path as a prop
-	export let currentPath = '';
+	import vertexShader from './shaders/vertexShader-three.glsl';
+	import fragmentShader_aufbau from './shaders/about/fragmentShader-aufbau.glsl';
+	import fragmentShader_niels from './shaders/about/fragmentShader-niels.glsl';
+	import fragmentShader_raum from './shaders/about/fragmentShader-raum.glsl';
+	import fragmentShader_closed_loop from './shaders/about/fragmentShader-closed-loop.glsl';
+	import fragmentShader_new from './shaders/about/fragmentShader-new.glsl';
+	import fragmentShader_garret from './shaders/about/fragmentShader-garrett.glsl';
 
 	let isDragging = false;
 	let previousMousePosition = { x: 0, y: 0 };
@@ -19,10 +20,33 @@
 	// For better mouse influence tracking
 	let targetCameraPosition = { x: 0, y: 0 };
 	let viewCenter = { x: 0, y: 0 };
+	
+	// Track mounted state
+	let mounted = false;
 
 	const uniformsBase = {
 		time: { value: 0 },
 		mouse: { value: [0.0,0.0] }
+	};
+
+	const colors = {
+   color1: new THREE.Color(0xff6b6b), // Playful Red
+   color2: new THREE.Color(0xffd93d), // Playful Yellow
+   color3: new THREE.Color(0x6bcbef), // Playful Light Blue
+   color4: new THREE.Color(0x32a852), // Playful Green
+   color5: new THREE.Color(0x995d81), // Playful Mauve
+   color6: new THREE.Color(0xed6663), // Playful Coral
+   color7: new THREE.Color(0x4b89dc), // Playful Blue
+   color8: new THREE.Color(0xf0a07c), // Playful Peach
+}
+
+	const shaders = {
+    aufbau: fragmentShader_aufbau,
+    niels: fragmentShader_niels,
+    raum: fragmentShader_raum,
+    closed_loop: fragmentShader_closed_loop,
+		new: fragmentShader_new,
+		garrett: fragmentShader_garret,
 	};
 
 	let container;
@@ -41,11 +65,9 @@
 	const VISIBLE_RANGE = 25; // Number of tiles visible in each direction from center
 	const tileCache = new Map(); // Cache for tracking existing tiles
 	
-	// Current shader set based on page
-	let currentShaders;
-	let currentColors;
-	let HARMONIC_RATIOS;
-	let BASE_CHANGE_INTERVAL;
+	// Harmonic timing for tile changes
+	const HARMONIC_RATIOS = [1, 2, 3/2, 4/3, 5/3, 5/4, 6/5, 8/5, 10/6]; // Harmonic ratios
+	const BASE_CHANGE_INTERVAL = 2000; // Base interval in milliseconds
 	
 	// Track tile change timers
 	const tileTimers = new Map();
@@ -55,61 +77,39 @@
 	let mouseMovementTimeout;
 	const MOUSE_IDLE_THRESHOLD = 300; // ms without movement to consider mouse stopped
 
-	// Initialize with the appropriate shader set for the current page
-	$: updateShaderSet(currentPath || $page.url.pathname);
-
-	function updateShaderSet(pathname) {
-		if (browser) {
-			const shaderSet = getShaderSetForPage(pathname);
-			currentShaders = shaderSet.shaders;
-			currentColors = shaderSet.colors;
-			HARMONIC_RATIOS = shaderSet.harmonic.ratios;
-			BASE_CHANGE_INTERVAL = shaderSet.harmonic.baseInterval;
-			
-			// If the scene is already initialized, regenerate all tiles with new shaders
-			if (scene) {
-				regenerateTiles();
+	let animationFrameId;
+	
+	// Mount the component and start the animation
+	onMount(() => {
+		try {
+			mounted = true;
+			init();
+			animate();
+			if (container && renderer && renderer.domElement) {
+				container.appendChild(renderer.domElement);
 			}
-		}
-	}
-
-	function regenerateTiles() {
-		// Clear all existing tiles
-		for (const [tileKey, tile] of tileCache.entries()) {
-			// Clear timer
-			if (tileTimers.has(tileKey)) {
-				clearTimeout(tileTimers.get(tileKey));
-				tileTimers.delete(tileKey);
-			}
-			
-			scene.remove(tile);
-			if (tile.material) {
-				tile.material.dispose();
-			}
-			if (tile.geometry) {
-				tile.geometry.dispose();
-			}
-			tileCache.delete(tileKey);
+		} catch (e) {
+			console.error("Error initializing three.js:", e);
 		}
 		
-		// Recreate visible tiles with new shaders
-		updateVisibleTiles();
-	}
+		return cleanup;
+	});
 
-	init();
-	animate();
+	onDestroy(() => {
+		cleanup();
+	});
 
 	function updateShaderUniforms() {
-		const elapsedTime = clock.getElapsedTime();
+    const elapsedTime = clock.getElapsedTime();
 
-		scene.children.forEach(child => {
-			if (child.material instanceof THREE.ShaderMaterial) {
-				child.material.uniforms.time.value = elapsedTime;
-				child.material.uniforms.mouse.value.x = mouse.x;
-				child.material.uniforms.mouse.value.y = mouse.y;
-			}
-		});
-	}
+    scene.children.forEach(child => {
+        if (child.material instanceof THREE.ShaderMaterial) {
+            child.material.uniforms.time.value = elapsedTime;
+            child.material.uniforms.mouse.value.x = mouse.x;
+            child.material.uniforms.mouse.value.y = mouse.y;
+        }
+    });
+}
 
 	function init() {
 		camera = new THREE.PerspectiveCamera(20, width / height, 1, 2000);
@@ -124,29 +124,16 @@
 		scene = new THREE.Scene();
 		scene.background = new THREE.Color(0x232323);
 
-		// Initialize shader set
-		updateShaderSet(currentPath || $page.url.pathname);
-		
 		updateVisibleTiles();
 
 		renderer = new THREE.WebGLRenderer({ antialias: false });
 		renderer.setPixelRatio(window.devicePixelRatio);
 		renderer.setSize(width, height);
 
-		onMount(() => {
-			container.appendChild(renderer.domElement);
-			return cleanup;
-		});
-
 		window.addEventListener('mousemove', onDocumentMouseMove);
 		window.addEventListener('resize', onWindowResize);
 		window.addEventListener('mousedown', onDocumentMouseDown);
 		window.addEventListener('mouseup', onDocumentMouseUp);
-	}
-
-	function getRandomColor() {
-		const colorKeys = Object.keys(currentColors);
-		return currentColors[colorKeys[Math.floor(Math.random() * colorKeys.length)]];
 	}
 
 	function createTile(x, y) {
@@ -157,20 +144,16 @@
 			return tileCache.get(tileKey);
 		}
 		
-		// Get random shader from current shader set
-		const shaderKeys = Object.keys(currentShaders);
-		const shaderName = shaderKeys[Math.floor(Math.random() * shaderKeys.length)];
-		const selectedShader = currentShaders[shaderName];
-		
+		const shaderName = Object.keys(shaders)[Math.floor(Math.random() * Object.keys(shaders).length)];
 		const shaderMaterial = new THREE.ShaderMaterial({
-			vertexShader: commonVertexShader,
-			fragmentShader: selectedShader,
+			vertexShader: vertexShader,
+			fragmentShader: shaders[shaderName],
 			uniforms: {
 				...uniformsBase,
-				color1: { value: getRandomColor() },
-				color2: { value: getRandomColor() },
-				color3: { value: getRandomColor() },
-				color4: { value: getRandomColor() },
+				color1: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
+				color2: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
+				color3: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
+				color4: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
 			}
 		});
 
@@ -217,10 +200,8 @@
 		const tile = tileCache.get(tileKey);
 		if (!tile) return;
 		
-		// Get a new random shader from current shader set
-		const shaderKeys = Object.keys(currentShaders);
-		const shaderName = shaderKeys[Math.floor(Math.random() * shaderKeys.length)];
-		const selectedShader = currentShaders[shaderName];
+		// Get a new random shader
+		const shaderName = Object.keys(shaders)[Math.floor(Math.random() * Object.keys(shaders).length)];
 		
 		// Dispose of the old material
 		if (tile.material) {
@@ -229,16 +210,16 @@
 		
 		// Create a new material with the new shader
 		const newMaterial = new THREE.ShaderMaterial({
-			vertexShader: commonVertexShader,
-			fragmentShader: selectedShader,
+			vertexShader: vertexShader,
+			fragmentShader: shaders[shaderName],
 			uniforms: {
 				...uniformsBase,
 				time: { value: clock.getElapsedTime() },
 				mouse: { value: [mouse.x, mouse.y] },
-				color1: { value: getRandomColor() },
-				color2: { value: getRandomColor() },
-				color3: { value: getRandomColor() },
-				color4: { value: getRandomColor() },
+				color1: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
+				color2: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
+				color3: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
+				color4: { value: colors[Object.keys(colors)[Math.floor(Math.random() * Object.keys(colors).length)]] },
 			}
 		});
 		
@@ -296,9 +277,9 @@
 	}
 
 	function onDocumentMouseDown(event) {
-		isDragging = true;
-		previousMousePosition.x = event.clientX;
-		previousMousePosition.y = event.clientY;
+    isDragging = true;
+    previousMousePosition.x = event.clientX;
+    previousMousePosition.y = event.clientY;
 	}
 
 	function onDocumentMouseMove(event) {
@@ -338,7 +319,7 @@
 	}
 
 	function onDocumentMouseUp() {
-		isDragging = false;
+    isDragging = false;
 		
 		// Update the view center to the current camera position when dragging stops
 		viewCenter.x = camera.position.x;
@@ -346,7 +327,7 @@
 	}
 
 	function animate() {
-		requestAnimationFrame(animate);
+		animationFrameId = requestAnimationFrame(animate);
 		render();
 	}
 
@@ -378,35 +359,75 @@
 		renderer.render(scene, camera);
 	}
 
-	function cleanup() {
-		window.removeEventListener('resize', onWindowResize);
-		window.removeEventListener('mousemove', onDocumentMouseMove);
-		window.removeEventListener('mousedown', onDocumentMouseDown);
-		window.removeEventListener('mouseup', onDocumentMouseUp);
+	// Export the cleanup function for the component manager
+	export function cleanup() {
+		if (!mounted) return;
 		
-		// Clear mouse movement timeout
-		clearTimeout(mouseMovementTimeout);
-
-		// Clear all timers
-		for (const timerId of tileTimers.values()) {
-			clearTimeout(timerId);
-		}
-		tileTimers.clear();
-
-		// Cleanup all tiles
-		for (const [tileKey, tile] of tileCache.entries()) {
-			if (tile.material) {
-				tile.material.dispose();
+		try {
+			window.removeEventListener('resize', onWindowResize);
+			window.removeEventListener('mousemove', onDocumentMouseMove);
+			window.removeEventListener('mousedown', onDocumentMouseDown);
+			window.removeEventListener('mouseup', onDocumentMouseUp);
+			
+			// Clear mouse movement timeout
+			if (mouseMovementTimeout) {
+				clearTimeout(mouseMovementTimeout);
+				mouseMovementTimeout = null;
 			}
-			if (tile.geometry) {
-				tile.geometry.dispose();
-			}
-		}
-		tileCache.clear();
 
-		//cleanup webgl
-		renderer.dispose();
-		scene.dispose();
+			// Clear all timers
+			for (const timerId of tileTimers.values()) {
+				clearTimeout(timerId);
+			}
+			tileTimers.clear();
+
+			// Cleanup all tiles
+			for (const [tileKey, tile] of tileCache.entries()) {
+				if (tile.material) {
+					tile.material.dispose();
+				}
+				if (tile.geometry) {
+					tile.geometry.dispose();
+				}
+				if (scene) {
+					scene.remove(tile);
+				}
+			}
+			tileCache.clear();
+
+			// Properly dispose of scene objects
+			if (scene) {
+				// Remove all objects from the scene first
+				while(scene.children && scene.children.length > 0) { 
+					const object = scene.children[0];
+					scene.remove(object);
+				}
+			}
+
+			//cleanup webgl
+			if (renderer) {
+				renderer.dispose();
+				renderer.forceContextLoss();
+				renderer.domElement = null;
+			}
+			
+			// Clear any animation frame requests
+			if (animationFrameId) {
+				cancelAnimationFrame(animationFrameId);
+				animationFrameId = null;
+			}
+			
+			// Remove canvas from container if it exists
+			if (container && renderer && renderer.domElement && container.contains(renderer.domElement)) {
+				container.removeChild(renderer.domElement);
+			}
+			
+			// Reset state
+			mounted = false;
+			
+		} catch (e) {
+			console.warn("Error during three.js cleanup:", e);
+		}
 	}
 </script>
 

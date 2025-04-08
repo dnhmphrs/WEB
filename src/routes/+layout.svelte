@@ -11,9 +11,9 @@
 
 	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
+	import BackgroundManager from '$lib/graphics/BackgroundManager.svelte';
 
 	export let data;
-	let Geometry;
 
 	$: if (browser && data?.analyticsId) {
 		webVitals({
@@ -32,17 +32,12 @@
 		isIframe.set(window.location !== window.parent.location);
 	}
 
-	onMount(async () => {
-		// webgl
-		const module = await import('$lib/graphics/three.svelte');
-		Geometry = module.default;
-
+	onMount(() => {
 		handleScreen();
 		window.addEventListener('resize', () => handleScreen());
 
-		// releasr opacity block once geometry is loaded
+		// Release opacity block once mounted
 		document.querySelector('main').style.opacity = 1;
-
 
 		return () => {
 			window.removeEventListener('resize', () => handleScreen());
@@ -64,11 +59,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-{#if Geometry}
-    <svelte:component this={Geometry} currentPath={$page.url.pathname} />
-{:else}
-    <div class="loading">loading.</div>
-{/if}
+<!-- Background manager will load the appropriate background based on the route -->
+<BackgroundManager />
 
 <main>
 	<header>
@@ -120,16 +112,5 @@
 		width: 100%;
 		height: 100%;
 		background: none;
-	}
-
-	.loading {
-		position: absolute;
-		font-style: italic;
-		font-family: serif;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		padding: 10px;
-		font-size: 12px;
 	}
 </style>
