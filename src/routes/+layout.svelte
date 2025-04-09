@@ -88,6 +88,9 @@
 		background: none;
 		opacity: 0;
 		overflow: hidden;
+		position: relative;
+		pointer-events: none;
+		z-index: 1;
 	}
 
 	header {
@@ -95,13 +98,14 @@
 		top: 0;
 		width: 100%;
 		z-index: 1;
+		pointer-events: auto;
 	}
 
 	footer {
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-
+		pointer-events: auto;
 	}
 
 	body {
@@ -112,5 +116,6 @@
 		width: 100%;
 		height: 100%;
 		background: none;
+		pointer-events: auto;
 	}
 </style>

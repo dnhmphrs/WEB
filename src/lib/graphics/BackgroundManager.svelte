@@ -99,7 +99,9 @@
 {#if isLoading}
 	<div class="loading">loading.</div>
 {:else if activeComponent}
-	<svelte:component this={activeComponent} bind:this={cleanupRef} />
+	<div class="background-wrapper">
+		<svelte:component this={activeComponent} bind:this={cleanupRef} />
+	</div>
 {/if}
 
 <style>
@@ -113,5 +115,15 @@
 		padding: 10px;
 		font-size: 12px;
 		z-index: -1;
+	}
+	
+	.background-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		pointer-events: none;
 	}
 </style> 
