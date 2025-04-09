@@ -116,6 +116,6 @@
 		width: 100%;
 		height: 100%;
 		background: none;
-		pointer-events: auto;
+		pointer-events: none;
 	}
 </style>

@@ -60,13 +60,13 @@
 		renderer.domElement.style.position = 'absolute';
 		renderer.domElement.style.top = '0';
 		renderer.domElement.style.zIndex = '-1'; // Set z-index to ensure it's behind UI elements
-		renderer.domElement.style.pointerEvents = 'none'; // Explicitly set pointer-events in JS
 		container.appendChild(renderer.domElement);
 
-		// Controls setup - Attach to document.body instead of a specific div
-		controls = new OrbitControls(camera, document.body); // Attach to body
-		controls.enableZoom = true; 
-		controls.enablePan = false; 
+		// Controls setup
+		// controls = new OrbitControls(camera, renderer.domElement); // Attach to renderer's element - CHANGED
+		controls = new OrbitControls(camera, container); // Attach to the container div instead
+		controls.enableZoom = true;
+		controls.enablePan = false;
 
 		// Cube setup
 		cubeGroup = new THREE.Group();
@@ -136,11 +136,10 @@
 
 <style>
     .home-background {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
-        overflow: hidden; /* Prevent scrollbars */
+        /* Ensure it doesn't block events if something is behind it, although unlikely here */
+        /* pointer-events: none; */ /* REMOVED to allow canvas events */
+        /* Let parent handle positioning */
     }
 </style>
