@@ -25,7 +25,7 @@
       <p>]</p>
     </div>
     <!-- <a href='/'><h1><span style="font-size: 32px; width: 100%;">↝</span></h1></a> -->
-    <h1><span style="font-size: 24px; width: 100%;">🍉</span></h1>
+    <h1><span style="font-size: 24px; width: 100%;">👋</span></h1>
   </div>
 </body>
 
