@@ -67,7 +67,7 @@
 
 <!-- Background manager will load the appropriate background based on the route -->
 
-<BackgroundManager style={"position: aboslute;"} />
+<BackgroundManager />
 
 <main>
 	<header>
@@ -84,7 +84,7 @@
 	</footer>
 	{/if}
 
-<svelte:component this={Geometry}  style={"position: aboslute;"} />
+<svelte:component this={Geometry} />
 
 </main>
 
