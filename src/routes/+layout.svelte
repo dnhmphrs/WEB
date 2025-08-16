@@ -14,6 +14,7 @@
 	import BackgroundManager from '$lib/graphics/BackgroundManager.svelte';
 
 	export let data;
+	let Geometry;
 
 	$: if (browser && data?.analyticsId) {
 		webVitals({
@@ -32,7 +33,12 @@
 		isIframe.set(window.location !== window.parent.location);
 	}
 
-	onMount(() => {
+	onMount(async () => {
+		// webgl
+		const module = await import('$lib/graphics/geometry.svelte');
+		Geometry = module.default;
+
+
 		handleScreen();
 		window.addEventListener('resize', () => handleScreen());
 
@@ -60,7 +66,8 @@
 </svelte:head>
 
 <!-- Background manager will load the appropriate background based on the route -->
-<BackgroundManager />
+
+<BackgroundManager style={"position: aboslute;"} />
 
 <main>
 	<header>
@@ -76,7 +83,9 @@
 		<Footer />
 	</footer>
 	{/if}
-	
+
+<svelte:component this={Geometry}  style={"position: aboslute;"} />
+
 </main>
 
 <style>
