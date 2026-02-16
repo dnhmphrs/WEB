@@ -217,7 +217,7 @@
 	.mobile-link {
 		background: none;
 		border: none;
-		color: var(--background);
+		color: var(--primary);
 		font-size: 14px;
 		letter-spacing: 0.15em;
 		cursor: pointer;
@@ -304,19 +304,19 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 5px 15px;
-		border-bottom: 1px solid var(--primary);
+		/* border-bottom: 1px solid var(--primary-50); */
 	}
 
 	.project-title {
 		font-size: 12px;
 		letter-spacing: 0.15em;
-		color: var(--background);
+		color: var(--primary);
 	}
 
 	.close-btn {
 		background: none;
 		border: none;
-		color: var(--background);
+		color: var(--primary);
 		cursor: pointer;
 		font-size: 14px;
 		padding: 5px;
@@ -341,15 +341,17 @@
 
 		.iframe-container {
 			margin: 10px;
+			
 		}
 
 		.about-wrapper {
-			top: 55%;
+			background: none;
 		}
 
 		.fill {
 			min-width: 90vw;
 			max-width: 90vw;
+			backdrop-filter: none;
 		}
 	}
 </style>
