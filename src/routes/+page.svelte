@@ -120,7 +120,7 @@
 		left: 0;
 		right: 0;
 		height: 40px;
-		background: var(--background);
+		backdrop-filter: blur(10px);
 		border-bottom: 1px solid var(--primary);
 		display: flex;
 		align-items: center;
@@ -187,7 +187,7 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: var(--background);
+		backdrop-filter: blur(10px);
 		z-index: 200;
 		display: flex;
 		flex-direction: column;
@@ -254,7 +254,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		background: var(--background);
+		backdrop-filter: blur(10px);
 		border: solid 1px var(--primary);
 		padding: 10px 20px;
 		min-width: 400px;
@@ -295,7 +295,7 @@
 		flex-direction: column;
 		margin: 10px;
 		border: 1px solid var(--primary);
-		background: var(--background);
+		backdrop-filter: blur(10px);
 	}
 
 	.iframe-header {
@@ -304,7 +304,6 @@
 		align-items: center;
 		padding: 5px 15px;
 		border-bottom: 1px solid var(--primary);
-		background: var(--background);
 	}
 
 	.project-title {
@@ -329,7 +328,7 @@
 		flex: 1;
 		width: 100%;
 		height: 100%;
-		background: #fff;
+		background: #f0f0f0;
 	}
 
 	/* Mobile styles */

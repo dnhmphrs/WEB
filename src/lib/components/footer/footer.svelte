@@ -26,12 +26,10 @@
 		justify-content: flex-end;
 	}
 
-	footer a,
-	footer p {
+	footer a{
 		backdrop-filter: blur(10px);
-		color: var(--background);
-		border: var(--border);
-
+		color: var(--primary);
+		border: solid 1px var(--primary-50);
 		padding: 10px 15px;
 		font-size: 12px;
 
@@ -39,12 +37,15 @@
 		font-family: var(--font-body);
 	}
 
+	footer a:hover {
+		opacity: 1.0;
+	}
+
 	@media only screen and (max-width: 768px) {
 		footer {
 			padding: 20px 24px;
 		}
-		footer a,
-		footer p {
+		footer a {
 			font-size: 12px;
 		}
 	}
