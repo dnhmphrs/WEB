@@ -13,10 +13,10 @@
 }
 
 :root {
-	--background: #232323;
-	--background-50: #23232380;
-	--primary: #d0d0d0;
-	--primary-50: #d0d0d080;
+	--background: #e0e0e0;
+	--background-50: #e0e0e080;
+	--primary: #232323;
+	--primary-50: #23232380;
 
 	--green: #008080;
 	--white: #fafafa;

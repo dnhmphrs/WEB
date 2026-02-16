@@ -9,7 +9,6 @@
 	import { screenType, isIframe, screenSize } from '$lib/store/store';
 	import { getDeviceType, getScreenSize } from '$lib/functions/utils';
 
-	import Header from '$lib/components/header/header.svelte';
 	import Footer from '$lib/components/footer/footer.svelte';
 
 	export let data;
@@ -71,10 +70,6 @@
 {/if}
 
 <main>
-	<header>
-		<Header />
-	</header>
-
 	<body>
 		<slot />
 	</body>
