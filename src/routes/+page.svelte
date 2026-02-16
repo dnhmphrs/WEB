@@ -95,8 +95,8 @@
 				<h1 style="padding:10px;">D<span class="tmp">A</span>NIEL HUMPHRIES</h1>
 				<p style="text-align:center;">Freelancer, open to Creative and{#if $screenType !=1}<br>{/if} technical Work with small clients.</p>
 				<br>
-				<p>graphics & 3d</p>
-				<p>creative web engineering</p>
+				<p>graphics + 3d web</p>
+				<p>low latency rust systems</p>
 				<p>neuroscience, ML, mathematics</p>
 				<br>
 				<div class="links">
