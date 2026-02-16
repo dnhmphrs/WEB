@@ -334,7 +334,7 @@
 	}
 
 	/* Mobile styles */
-	@media (max-width: 768px) {
+	@media (max-width: 568px) {
 		header {
 			padding: 0 15px;
 		}

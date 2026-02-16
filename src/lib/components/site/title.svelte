@@ -103,5 +103,9 @@
 		color: var(--background);
 	}
 
-
+	@media (max-width: 568px) {
+    section {
+      opacity: 0;
+    }
+  }
 </style>
