@@ -217,8 +217,8 @@
 	.mobile-link {
 		background: none;
 		border: none;
-		color: var(--primary);
-		font-size: 18px;
+		color: var(--background);
+		font-size: 14px;
 		letter-spacing: 0.15em;
 		cursor: pointer;
 		padding: 10px 20px;
