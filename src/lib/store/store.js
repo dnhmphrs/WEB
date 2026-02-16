@@ -12,3 +12,41 @@ export const mouseOnLink = writable(false);
 
 export const mousePosition = writable({ x: 0, y: 0, z: 0 });
 export const screenSize = writable({ width: 0, height: 0 });
+
+// Projects data
+export const projects = [
+    {
+		id: 'daniel',
+		name: 'DANIEL',
+		year: 2026,
+		description: 'Personal Webpage',
+		url: 'https://danielniels.co.uk/'
+	},
+	{
+		id: 'birds',
+		name: 'BIRDS',
+		year: 2025,
+		description: 'Digital art / Flocking sim',
+		url: 'https://birds.aufbau.io/'
+	},
+    {
+		id: 'garrett',
+		name: 'GARRETT',
+		year: 2024,
+		description: 'Portfolio landing Page',
+		url: 'https://garrettmusar.work/'
+	},
+	{
+		id: 'glide-globe',
+		name: 'GLIDE-GLOBE',
+		year: 2024,
+		description: '3d Globe Component',
+		url: 'https://www.glideapps.com/experts-program'
+	}
+];
+
+// Currently selected project
+export const selectedProject = writable(null);
+
+// Whether to use monochrome palette (for home page)
+export const useMonochrome = writable(false);
