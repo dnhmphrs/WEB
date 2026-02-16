@@ -101,7 +101,7 @@
 				<br>
 				<div class="links">
 					<p>[</p>
-					<a href="/daniel_humphries_cv.pdf">ME</a>
+					<a href="/daniel_humphries_cv.pdf">CV</a>
 					<p>//</p>
 					<a href="mailto: dan@aufbau.io">Email</a>
 					<p>]</p>
