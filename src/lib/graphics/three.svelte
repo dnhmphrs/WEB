@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { screenType } from '$lib/store/store';
+	import { screenType, selectedProject } from '$lib/store/store';
 	import { page } from '$app/stores';
 	// import { afterNavigate } from '$app/navigation';
 
@@ -16,6 +16,10 @@
 
 	let isDragging = false;
 	let previousMousePosition = { x: 0, y: 0 };
+	let isProjectActive = false;
+
+	// Subscribe to selectedProject changes
+	$: isProjectActive = $selectedProject !== null;
 
 	const uniformsBase = {
 		time: { value: 0 },
@@ -154,12 +158,15 @@
 	}
 
 	function onDocumentMouseDown(event) {
+		if (isProjectActive) return;
     isDragging = true;
     previousMousePosition.x = event.clientX;
     previousMousePosition.y = event.clientY;
 }
 
 	function onDocumentMouseMove(event) {
+		if (isProjectActive) return;
+		
 		var clientX = event.clientX;
 		var clientY = event.clientY;
 
@@ -182,7 +189,10 @@
     isDragging = false;
 	}
 
-	function onSpacebar() {
+	function onSpacebar(event) {
+		if (isProjectActive) return;
+		// Only trigger on spacebar for keydown events
+		if (event.type === 'keydown' && event.code !== 'Space') return;
 		assignShadersRandomly();
 	}
 

@@ -29,12 +29,12 @@
 </script>
 
 <svelte:head>
-	<title>AUFBAU</title>
+	<title>UFBAU</title>
 </svelte:head>
 
 <!-- Header -->
 <header>
-	<button class="logo" on:click={closeProject}>AUFBAU</button>
+	<button class="logo" on:click={closeProject}>AUF<span class="tmp">B</span>AU</button>
 	
 	{#if $screenType === 1}
 		<!-- Mobile: hamburger -->
@@ -79,7 +79,7 @@
 	{#if $selectedProject}
 		<div class="iframe-container">
 			<div class="iframe-header">
-				<span class="project-title">{$selectedProject.name} : {$selectedProject.description} </span>
+				<a href="{$selectedProject.url}" class="project-title" target="_blank">{$selectedProject.name} : {$selectedProject.description} </a>
 				<button class="close-btn" on:click={closeProject}>✕</button>
 			</div>
 			<iframe 
