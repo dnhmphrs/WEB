@@ -28,10 +28,6 @@
 	}
 </script>
 
-<svelte:head>
-	<title>UFBAU</title>
-</svelte:head>
-
 <!-- Header -->
 <header>
 	<button class="logo" on:click={closeProject}>AUF<span class="tmp">B</span>AU</button>
