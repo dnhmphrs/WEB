@@ -296,6 +296,7 @@
 		margin: 10px;
 		border: 1px solid var(--primary);
 		backdrop-filter: blur(10px);
+		z-index: 1;
 	}
 
 	.iframe-header {
@@ -309,12 +310,13 @@
 	.project-title {
 		font-size: 12px;
 		letter-spacing: 0.15em;
+		color: var(--background);
 	}
 
 	.close-btn {
 		background: none;
 		border: none;
-		color: var(--primary);
+		color: var(--background);
 		cursor: pointer;
 		font-size: 14px;
 		padding: 5px;

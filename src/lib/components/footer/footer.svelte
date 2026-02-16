@@ -11,7 +11,6 @@
 	footer {
 		width: 100%;
 
-		/* z-index: 10; */
 		gap: 10px;
 
 		padding: 35px 20px;
@@ -29,7 +28,7 @@
 	footer a{
 		backdrop-filter: blur(10px);
 		color: var(--primary);
-		border: solid 1px var(--primary-50);
+		border: 1px solid var(--primary);
 		padding: 10px 15px;
 		font-size: 12px;
 
