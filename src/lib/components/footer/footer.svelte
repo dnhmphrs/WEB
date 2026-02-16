@@ -14,7 +14,7 @@
 		z-index: 10;
 		gap: 10px;
 
-		padding: 35px 20px;
+		padding: 42px 20px;
 		height: calc(2 * var(--margin));
 
 		border-top: solid 1px var(--accent-50);

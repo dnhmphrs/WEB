@@ -30,7 +30,7 @@
 
 <!-- Header -->
 <header>
-	<button class="logo" on:click={closeProject}>AUF<span class="tmp">B</span>AU</button>
+	<button class="logo" on:click={closeProject}>AUF<span class="smol">B</span>AU</button>
 	
 	{#if $screenType === 1}
 		<!-- Mobile: hamburger -->
@@ -92,7 +92,7 @@
 		
 		<div class="about-wrapper">
 			<div class="fill">
-				<h1 style="padding:10px;">D<span class="tmp">A</span>NIEL HUMPHRIES</h1>
+				<h1 style="padding:10px;">D<span class="smol">A</span>NIEL HUMPHRIES</h1>
 				<p style="text-align:center;">Freelancer, open to Creative and{#if $screenType !=1}<br>{/if} technical Work with small clients.</p>
 				<br>
 				<p>graphics + 3d web</p>
@@ -260,7 +260,7 @@
 		min-width: 400px;
 	}
 
-	.tmp {
+	.smol {
 		font-family: martina-plantijn;
 		font-style: italic;
 	}
