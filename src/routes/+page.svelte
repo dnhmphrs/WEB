@@ -254,17 +254,11 @@
 	.loading, .blocked {
 		position: absolute;
 		inset: 0;
-		background: var(--background);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		gap: 15px;
-	}
-
-	.blocked {
-		background: none;
-		backdrop-filter: blur(10px);
 	}
 
 	.loading p, .blocked p {
