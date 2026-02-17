@@ -20,28 +20,32 @@ export const projects = [
 		name: 'DANIEL',
 		year: 2026,
 		description: 'Personal Webpage',
-		url: 'https://danielniels.co.uk/'
+		url: 'https://danielniels.co.uk/',
+		displayIframe: true
 	},
 	{
 		id: 'glide-globe',
 		name: 'GLIDE-GLOBE',
 		year: 2024,
 		description: '3d Globe Component',
-		url: 'https://www.glideapps.com/experts-program'
+		url: 'https://www.glideapps.com/experts-program',
+		displayIframe: false
 	},
 	{
 		id: 'garrett',
 		name: 'GARRETT',
 		year: 2024,
 		description: 'Portfolio landing Page',
-		url: 'https://garrettmusar.work/'
+		url: 'https://garrettmusar.work/',
+		displayIframe: true
 	},
 	{
 		id: 'birds',
 		name: 'BIRDS',
 		year: 2025,
 		description: 'Digital art / Flocking sim',
-		url: 'https://birds.aufbau.io/'
+		url: 'https://birds.aufbau.io/',
+		displayIframe: true
 	}
 ];
 

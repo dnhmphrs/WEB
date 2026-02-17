@@ -75,16 +75,23 @@
 	{#if $selectedProject}
 		<div class="iframe-container">
 			<div class="iframe-header">
-				<a href="{$selectedProject.url}" class="project-title" target="_blank">{$selectedProject.name} : {$selectedProject.description} </a>
+				<a href="{$selectedProject.url}" class="project-title" target="_blank">{$selectedProject.name} : {$selectedProject.description}</a>
 				<button class="close-btn" on:click={closeProject}>✕</button>
 			</div>
-			<iframe 
-				src={$selectedProject.url} 
-				title={$selectedProject.name}
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen
-			></iframe>
+			{#if $selectedProject.displayIframe}
+				<iframe 
+					src={$selectedProject.url} 
+					title={$selectedProject.name}
+					frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen
+				></iframe>
+			{:else}
+				<div class="iframe-blocked">
+					<p>iframe blocked by site</p>
+					<a href={$selectedProject.url} target="_blank" rel="noreferrer">{$selectedProject.url}</a>
+				</div>
+			{/if}
 		</div>
 	{:else}
 		<!-- Home: Title + About -->
@@ -304,7 +311,6 @@
 		justify-content: space-between;
 		align-items: center;
 		padding: 5px 15px;
-		/* border-bottom: 1px solid var(--primary-50); */
 	}
 
 	.project-title {
@@ -333,6 +339,34 @@
 		background: #f0f0f0;
 	}
 
+	/* Iframe blocked fallback */
+	.iframe-blocked {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 15px;
+	}
+
+	.iframe-blocked p {
+		font-size: 12px;
+		letter-spacing: 0.1em;
+		opacity: 0.7;
+	}
+
+	.iframe-blocked a {
+		font-size: 14px;
+		letter-spacing: 0.1em;
+		color: var(--primary);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+	}
+
+	.iframe-blocked a:hover {
+		opacity: 0.7;
+	}
+
 	/* Mobile styles */
 	@media (max-width: 568px) {
 		header {
@@ -341,7 +375,6 @@
 
 		.iframe-container {
 			margin: 10px;
-			
 		}
 
 		.about-wrapper {
