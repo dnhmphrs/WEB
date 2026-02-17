@@ -24,12 +24,12 @@ export const projects = [
 		displayIframe: true
 	},
 	{
-		id: 'glide-globe',
-		name: 'GLIDE-GLOBE',
-		year: 2024,
-		description: '3d Globe Component',
-		url: 'https://www.glideapps.com/experts-program',
-		displayIframe: false
+		id: 'birds',
+		name: 'BIRDS',
+		year: 2025,
+		description: 'Digital art / Flocking sim',
+		url: 'https://birds.aufbau.io/',
+		displayIframe: true
 	},
 	{
 		id: 'garrett',
@@ -40,11 +40,19 @@ export const projects = [
 		displayIframe: true
 	},
 	{
-		id: 'birds',
-		name: 'BIRDS',
-		year: 2025,
-		description: 'Digital art / Flocking sim',
-		url: 'https://birds.aufbau.io/',
+		id: 'glide-globe',
+		name: 'GLIDE-GLOBE',
+		year: 2024,
+		description: '3d Globe Component',
+		url: 'https://www.glideapps.com/experts-program',
+		displayIframe: false
+	},
+	{
+		id: 'quasicrystal',
+		name: 'Quasicrystal',
+		year: 2024,
+		description: 'Digital Art',
+		url: 'https://quasicrystal.aufbau.io/',
 		displayIframe: true
 	}
 ];
