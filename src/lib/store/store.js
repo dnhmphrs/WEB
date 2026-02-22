@@ -24,14 +24,6 @@ export const projects = [
 		displayIframe: true
 	},
 	{
-		id: 'birds',
-		name: 'BIRDS',
-		year: 2025,
-		description: 'Digital art / Flocking sim',
-		url: 'https://birds.aufbau.io/',
-		displayIframe: true
-	},
-	{
 		id: 'garrett',
 		name: 'GARRETT',
 		year: 2024,
@@ -39,14 +31,14 @@ export const projects = [
 		url: 'https://garrettmusar.work/',
 		displayIframe: true
 	},
-	{
-		id: 'glide-globe',
-		name: 'GLIDE-GLOBE',
-		year: 2024,
-		description: '3d Globe Component',
-		url: 'https://www.glideapps.com/experts-program',
-		displayIframe: false
-	},
+	// {
+	// 	id: 'glide-globe',
+	// 	name: 'GLIDE-GLOBE',
+	// 	year: 2024,
+	// 	description: '3d Globe Component',
+	// 	url: 'https://www.glideapps.com/experts-program',
+	// 	displayIframe: false
+	// },
 	{
 		id: 'quasicrystal',
 		name: 'Quasicrystal',
@@ -54,7 +46,15 @@ export const projects = [
 		description: 'Digital Art',
 		url: 'https://quasicrystal.aufbau.io/',
 		displayIframe: true
-	}
+	},
+	{
+		id: 'birds',
+		name: 'BIRDS',
+		year: 2025,
+		description: 'Digital art / Flocking sim',
+		url: 'https://birds.aufbau.io/',
+		displayIframe: true
+	},
 ];
 
 // Currently selected project
