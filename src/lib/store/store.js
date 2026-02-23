@@ -24,6 +24,14 @@ export const projects = [
 		displayIframe: true
 	},
 	{
+		id: 'birds',
+		name: 'BIRDS',
+		year: 2025,
+		description: 'Digital art / Flocking sim',
+		url: 'https://birds.aufbau.io/',
+		displayIframe: true
+	},
+	{
 		id: 'direct-neural-biasing',
 		name: 'DNB',
 		year: 2025,
@@ -55,14 +63,6 @@ export const projects = [
 	// 	url: 'https://www.glideapps.com/experts-program',
 	// 	displayIframe: false
 	// },
-	{
-		id: 'birds',
-		name: 'BIRDS',
-		year: 2025,
-		description: 'Digital art / Flocking sim',
-		url: 'https://birds.aufbau.io/',
-		displayIframe: true
-	},
 ];
 
 // Currently selected project
