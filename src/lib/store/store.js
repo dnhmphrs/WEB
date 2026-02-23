@@ -40,19 +40,19 @@ export const projects = [
 		displayIframe: false
 	},
 	{
-		id: 'quasicrystal',
-		name: 'Quasicrystal',
-		year: 2024,
-		description: 'Digital Art',
-		url: 'https://quasicrystal.aufbau.io/',
-		displayIframe: true
-	},
-	{
 		id: 'garrett',
 		name: 'GARRETT',
 		year: 2024,
 		description: 'Portfolio landing Page',
 		url: 'https://garrettmusar.work/',
+		displayIframe: true
+	},
+	{
+		id: 'quasicrystal',
+		name: 'Quasicrystal',
+		year: 2024,
+		description: 'Digital Art',
+		url: 'https://quasicrystal.aufbau.io/',
 		displayIframe: true
 	},
 	// {
