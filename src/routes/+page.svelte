@@ -70,7 +70,7 @@
 				</div>
 			{:else}
 				<div class="blocked">
-					<p>iframe blocked by site</p>
+					<p>iframe not available. Visit project url</p>
 					<a href={$selectedProject.url} target="_blank">{$selectedProject.url}</a>
 				</div>
 			{/if}
@@ -259,6 +259,10 @@
 		align-items: center;
 		justify-content: center;
 		gap: 15px;
+	}
+
+	.blocked {
+		background: var(--background);
 	}
 
 	.loading p, .blocked p {
