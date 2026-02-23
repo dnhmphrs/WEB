@@ -24,6 +24,14 @@ export const projects = [
 		displayIframe: true
 	},
 	{
+		id: 'direct-neural-biasing',
+		name: 'DNB',
+		year: 2025,
+		description: 'Closer Loop Neuroscience Rust Library',
+		url: 'https://crates.io/crates/direct-neural-biasing',
+		displayIframe: true
+	},
+	{
 		id: 'quasicrystal',
 		name: 'Quasicrystal',
 		year: 2024,
@@ -39,14 +47,14 @@ export const projects = [
 		url: 'https://garrettmusar.work/',
 		displayIframe: true
 	},
-	{
-		id: 'glide-globe',
-		name: 'GLIDE-GLOBE',
-		year: 2024,
-		description: '3d Globe Component',
-		url: 'https://www.glideapps.com/experts-program',
-		displayIframe: false
-	},
+	// {
+	// 	id: 'glide-globe',
+	// 	name: 'GLIDE-GLOBE',
+	// 	year: 2024,
+	// 	description: '3d Globe Component',
+	// 	url: 'https://www.glideapps.com/experts-program',
+	// 	displayIframe: false
+	// },
 	{
 		id: 'birds',
 		name: 'BIRDS',
