@@ -15,12 +15,28 @@ export const screenSize = writable({ width: 0, height: 0 });
 
 // Projects data
 export const projects = [
-    {
-		id: 'daniel',
-		name: 'DANIEL',
+    // {
+	// 	id: 'daniel',
+	// 	name: 'DANIEL',
+	// 	year: 2026,
+	// 	description: 'Personal Webpage',
+	// 	url: 'https://danielniels.co.uk/',
+	// 	displayIframe: true
+	// },
+	{
+		id: 'theta-field',
+		name: 'Theta-Field',
 		year: 2026,
-		description: 'Personal Webpage',
-		url: 'https://danielniels.co.uk/',
+		description: 'Digital Art',
+		url: 'https://theta-field.aufbau.io/',
+		displayIframe: true
+	},
+	{
+		id: 'garrett',
+		name: 'GARRETT',
+		year: 2024,
+		description: 'Portfolio landing Page',
+		url: 'https://garrettmusar.work/',
 		displayIframe: true
 	},
 	{
@@ -38,14 +54,6 @@ export const projects = [
 		description: 'Closer Loop Neuroscience Rust Library',
 		url: 'https://crates.io/crates/direct-neural-biasing',
 		displayIframe: false
-	},
-	{
-		id: 'garrett',
-		name: 'GARRETT',
-		year: 2024,
-		description: 'Portfolio landing Page',
-		url: 'https://garrettmusar.work/',
-		displayIframe: true
 	},
 	{
 		id: 'quasicrystal',
