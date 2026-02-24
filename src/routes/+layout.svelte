@@ -50,10 +50,10 @@
 </script>
 
 <svelte:head>
-	<title>MAKE WEB FUN AGAIN</title>
+	<title>Daniel Humphries | aufbau</title>
 	<meta
 		name="description"
-		content="Der logische Aufbau der Web."
+		content="Daniel Humphries | Project Portfolio"
 	/>
 	<meta
 		name="keywords"
