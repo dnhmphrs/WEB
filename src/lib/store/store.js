@@ -47,14 +47,14 @@ export const projects = [
 		url: 'https://birds.aufbau.io/',
 		displayIframe: true
 	},
-	{
-		id: 'direct-neural-biasing',
-		name: 'DNB',
-		year: 2025,
-		description: 'Closer Loop Neuroscience Rust Library',
-		url: 'https://crates.io/crates/direct-neural-biasing',
-		displayIframe: false
-	},
+	// {
+	// 	id: 'direct-neural-biasing',
+	// 	name: 'DNB',
+	// 	year: 2025,
+	// 	description: 'Closer Loop Neuroscience Rust Library',
+	// 	url: 'https://crates.io/crates/direct-neural-biasing',
+	// 	displayIframe: false
+	// },
 	{
 		id: 'quasicrystal',
 		name: 'Quasicrystal',
