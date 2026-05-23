@@ -3,7 +3,7 @@
 
 <footer>
 	<!-- <a href="https://archive.aufbau.io"  rel="noreferrer">aufbau archive</a> -->
-	<a href="https://www.websitecarbon.com/website/aufbau-io/" rel="noreferrer">0.05G CO2 / VISIT</a>
+	<a href="https://www.websitecarbon.com/website/aufbau-io/" rel="noreferrer">0.02G CO2 / VISIT</a>
 	<!-- <p class="">COPYRIGHT 2022</p> -->
 </footer>
 
