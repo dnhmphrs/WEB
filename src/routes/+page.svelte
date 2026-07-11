@@ -88,9 +88,9 @@
 			<div class="links">
 				<span>[</span>
 				<!-- <a href="/daniel_humphries_cv.pdf">ME</a> -->
-				<a href="https://danielniels.co.uk">Web</a>
+				<a href="https://danielniels.co.uk">D<span class="alt">A</span>N</a>
 				<span>//</span>
-				<a href="mailto:dan@aufbau.io">Email</a>
+				<a href="mailto:dan@aufbau.io">E<span class="alt">M</span>ail</a>
 				<span>]</span>
 			</div>
 			<span class="emoji">🍉</span>
@@ -199,10 +199,10 @@
 		text-align: center;
 	}
 
-	.about h1 {
+	/* .about h1 {
 		font-size: 20px;
 		padding: 10px;
-	}
+	} */
 
 	.alt {
 		font-family: martina-plantijn;
@@ -216,7 +216,7 @@
 	}
 
 	.links a { padding: 0 10px; }
-	.emoji { font-size: 32px; margin-top: 10px; }
+	.emoji { font-size: 24px; margin-top: 4px; }
 
 	/* Iframe */
 	.iframe-container {
