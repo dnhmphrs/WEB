@@ -78,8 +78,8 @@
 	{:else}
 		<Title />
 		<div class="about">
-			<h1>D<span class="alt">A</span>NIEL HUMPHRIES</h1>
-			<p>Freelancer, open to Creative and{#if $screenType !== 1}<br>{/if} technical Work with small clients.</p>
+			<!-- <h1>D<span class="alt">A</span>NIEL HUMPHRIES</h1>
+			<p>Freelancer, open to Creative and{#if $screenType !== 1}<br>{/if} technical Work with small clients.</p> -->
 			<br>
 			<p>graphics + 3d web</p>
 			<p>low latency rust systems</p>
@@ -88,7 +88,7 @@
 			<div class="links">
 				<span>[</span>
 				<!-- <a href="/daniel_humphries_cv.pdf">ME</a> -->
-				<a href="https://danielniels.co.uk">ME</a>
+				<a href="https://danielniels.co.uk">Web</a>
 				<span>//</span>
 				<a href="mailto:dan@aufbau.io">Email</a>
 				<span>]</span>

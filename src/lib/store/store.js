@@ -31,6 +31,22 @@ export const projects = [
 		url: 'https://theta-field.aufbau.io/',
 		displayIframe: true
 	},
+	// {
+	// 	id: 'cc2k',
+	// 	name: 'cc2k',
+	// 	year: 2026,
+	// 	description: 'Conception Calculator 2000',
+	// 	url: 'https://www.conceptioncalculator2000.com/',
+	// 	displayIframe: true
+	// },
+	// {
+	// 	id: '沈菲菲',
+	// 	name: '沈菲菲',
+	// 	year: 2026,
+	// 	description: 'Portfolio landing Page',
+	// 	url: 'https://josephine-fmsb.vercel.app/',
+	// 	displayIframe: true
+	// },
 	{
 		id: 'garrett',
 		name: 'GARRETT',
@@ -47,14 +63,6 @@ export const projects = [
 		url: 'https://birds.aufbau.io/',
 		displayIframe: true
 	},
-	// {
-	// 	id: 'direct-neural-biasing',
-	// 	name: 'DNB',
-	// 	year: 2025,
-	// 	description: 'Closer Loop Neuroscience Rust Library',
-	// 	url: 'https://crates.io/crates/direct-neural-biasing',
-	// 	displayIframe: false
-	// },
 	{
 		id: 'quasicrystal',
 		name: 'Quasicrystal',

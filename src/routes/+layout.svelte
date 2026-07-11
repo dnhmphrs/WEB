@@ -50,7 +50,7 @@
 </script>
 
 <svelte:head>
-	<title>Daniel Humphries | aufbau</title>
+	<title>aufbau</title>
 	<meta
 		name="description"
 		content="Daniel Humphries | Project Portfolio"
