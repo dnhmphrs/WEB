@@ -39,14 +39,6 @@ export const projects = [
 	// 	url: 'https://www.conceptioncalculator2000.com/',
 	// 	displayIframe: true
 	// },
-	// {
-	// 	id: '沈菲菲',
-	// 	name: '沈菲菲',
-	// 	year: 2026,
-	// 	description: 'Portfolio landing Page',
-	// 	url: 'https://josephine-fmsb.vercel.app/',
-	// 	displayIframe: true
-	// },
 	{
 		id: 'garrett',
 		name: 'GARRETT',
@@ -63,6 +55,14 @@ export const projects = [
 		url: 'https://birds.aufbau.io/',
 		displayIframe: true
 	},
+	// {
+	// 	id: '沈菲菲',
+	// 	name: '沈菲菲',
+	// 	year: 2026,
+	// 	description: 'Portfolio landing Page',
+	// 	url: 'https://josephine-fs.vercel.app/',
+	// 	displayIframe: true
+	// },
 	{
 		id: 'quasicrystal',
 		name: 'Quasicrystal',
