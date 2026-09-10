@@ -59,8 +59,8 @@ export const projects = [
 	// 	id: '沈菲菲',
 	// 	name: '沈菲菲',
 	// 	year: 2026,
-	// 	description: 'Portfolio landing Page',
-	// 	url: 'https://josephine-fs.vercel.app/',
+	// 	description: 'Perosnal webpage',
+	// 	url: 'https://josephine-sb.vercel.app/',
 	// 	displayIframe: true
 	// },
 	{
