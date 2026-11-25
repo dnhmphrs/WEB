@@ -1,10 +1,10 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
 export const userType = writable(null);
 export const screenType = writable(null);
 export const isIframe = writable(true);
 
-export const DARK_PAGES = ['/ml-network'];
+export const DARK_PAGES = ["/ml-network"];
 export const darkMode = writable(false);
 
 export const lobbySelected = writable(false);
@@ -15,70 +15,78 @@ export const screenSize = writable({ width: 0, height: 0 });
 
 // Projects data
 export const projects = [
-    // {
-	// 	id: 'daniel',
-	// 	name: 'DANIEL',
-	// 	year: 2026,
-	// 	description: 'Personal Webpage',
-	// 	url: 'https://danielniels.co.uk/',
-	// 	displayIframe: true
-	// },
-	{
-		id: 'theta-field',
-		name: 'Theta-Field',
-		year: 2026,
-		description: 'Digital Art',
-		url: 'https://theta-field.aufbau.io/',
-		displayIframe: true
-	},
-	// {
-	// 	id: 'cc2k',
-	// 	name: 'cc2k',
-	// 	year: 2026,
-	// 	description: 'Conception Calculator 2000',
-	// 	url: 'https://www.conceptioncalculator2000.com/',
-	// 	displayIframe: true
-	// },
-	{
-		id: 'garrett',
-		name: 'GARRETT',
-		year: 2024,
-		description: 'Portfolio landing Page',
-		url: 'https://garrettmusar.work/',
-		displayIframe: true
-	},
-	{
-		id: 'birds',
-		name: 'BIRDS',
-		year: 2025,
-		description: 'Digital art / Flocking sim',
-		url: 'https://birds.aufbau.io/',
-		displayIframe: true
-	},
-	// {
-	// 	id: '沈菲菲',
-	// 	name: '沈菲菲',
-	// 	year: 2026,
-	// 	description: 'Perosnal webpage',
-	// 	url: 'https://josephine-sb.vercel.app/',
-	// 	displayIframe: true
-	// },
-	{
-		id: 'quasicrystal',
-		name: 'Quasicrystal',
-		year: 2024,
-		description: 'Digital Art',
-		url: 'https://quasicrystal.aufbau.io/',
-		displayIframe: true
-	},
-	// {
-	// 	id: 'glide-globe',
-	// 	name: 'GLIDE-GLOBE',
-	// 	year: 2024,
-	// 	description: '3d Globe Component',
-	// 	url: 'https://www.glideapps.com/experts-program',
-	// 	displayIframe: false
-	// },
+  // {
+  // 	id: 'daniel',
+  // 	name: 'DANIEL',
+  // 	year: 2026,
+  // 	description: 'Personal Webpage',
+  // 	url: 'https://danielniels.co.uk/',
+  // 	displayIframe: true
+  // },
+  {
+    id: "black-friday",
+    name: "30% OFF EVERYTHING",
+    year: 2026,
+    description: "Digital art",
+    url: "https://blackfriday-website.vercel.app/",
+    displayIframe: true,
+  },
+  {
+    id: "theta-field",
+    name: "Theta-Field",
+    year: 2026,
+    description: "Digital Art",
+    url: "https://theta-field.aufbau.io/",
+    displayIframe: true,
+  },
+  // {
+  // 	id: 'cc2k',
+  // 	name: 'cc2k',
+  // 	year: 2026,
+  // 	description: 'Conception Calculator 2000',
+  // 	url: 'https://www.conceptioncalculator2000.com/',
+  // 	displayIframe: true
+  // },
+  {
+    id: "garrett",
+    name: "GARRETT",
+    year: 2024,
+    description: "Portfolio landing Page",
+    url: "https://garrettmusar.work/",
+    displayIframe: true,
+  },
+  {
+    id: "birds",
+    name: "BIRDS",
+    year: 2025,
+    description: "Digital art / Flocking sim",
+    url: "https://birds.aufbau.io/",
+    displayIframe: true,
+  },
+  // {
+  // 	id: '沈菲菲',
+  // 	name: '沈菲菲',
+  // 	year: 2026,
+  // 	description: 'Perosnal webpage',
+  // 	url: 'https://josephine-sb.vercel.app/',
+  // 	displayIframe: true
+  // },
+  {
+    id: "quasicrystal",
+    name: "Quasicrystal",
+    year: 2024,
+    description: "Digital Art",
+    url: "https://quasicrystal.aufbau.io/",
+    displayIframe: true,
+  },
+  // {
+  // 	id: 'glide-globe',
+  // 	name: 'GLIDE-GLOBE',
+  // 	year: 2024,
+  // 	description: '3d Globe Component',
+  // 	url: 'https://www.glideapps.com/experts-program',
+  // 	displayIframe: false
+  // },
 ];
 
 // Currently selected project
