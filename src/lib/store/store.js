@@ -63,14 +63,14 @@ export const projects = [
     url: "https://birds.aufbau.io/",
     displayIframe: true,
   },
-  {
-  	id: '沈菲菲',
-  	name: '沈菲菲',
-  	year: 2026,
-  	description: 'Perosnal webpage',
-  	url: 'https://josephine-sb.vercel.app/',
-  	displayIframe: true
-  },
+  // {
+  // 	id: '沈菲菲',
+  // 	name: '沈菲菲',
+  // 	year: 2026,
+  // 	description: 'Perosnal webpage',
+  // 	url: 'https://josephine-sb.vercel.app/',
+  // 	displayIframe: true
+  // },
   {
     id: "quasicrystal",
     name: "Quasicrystal",
