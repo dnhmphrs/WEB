@@ -2,6 +2,9 @@
 	"name": "aufbau",
 	"version": "0.6.0",
 	"license": "MIT",
+	"engines": {
+		"node": ">=22"
+	},
 	"scripts": {
 		"dev": "vite dev --port 3000",
 		"build": "vite build",
