@@ -47,14 +47,7 @@ export const projects = [
   // 	url: 'https://www.conceptioncalculator2000.com/',
   // 	displayIframe: true
   // },
-  {
-    id: "garrett",
-    name: "GARRETT",
-    year: 2024,
-    description: "Portfolio landing Page",
-    url: "https://garrettmusar.work/",
-    displayIframe: true,
-  },
+
   {
     id: "birds",
     name: "BIRDS",
@@ -77,6 +70,14 @@ export const projects = [
     year: 2024,
     description: "Digital Art",
     url: "https://quasicrystal.aufbau.io/",
+    displayIframe: true,
+  },
+  {
+    id: "garrett",
+    name: "GARRETT",
+    year: 2024,
+    description: "Portfolio landing Page",
+    url: "https://garrettmusar.work/",
     displayIframe: true,
   },
   // {
